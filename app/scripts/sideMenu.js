@@ -1,4 +1,6 @@
-define(['jquery', 'iscroll'], function($) {
+define(['zepto','touch','iscroll'], function() {
+
+    window.$ = Zepto;
 
     function openMask() {
         document.documentElement.style.overflow = "hidden";
@@ -60,7 +62,7 @@ define(['jquery', 'iscroll'], function($) {
         var $mask = $('.sm_mask'),
             $wrap = $('.sm_warp');
 
-        $mask.on('click', function(e) {
+        $mask.on('tap', function(e) {
             e.stopPropagation();
             $(this).hide();
             $wrap.hide();
@@ -68,13 +70,13 @@ define(['jquery', 'iscroll'], function($) {
             hideMask();
         });
 
-        $(document.body).on('click', function(e) {
+        $(document.body).on('tap', function(e) {
             initDom();
         })
 
-        $wrap.on('click', '.sm_li', function(e) {
+        $wrap.on('tap', '.sm_li', function(e) {
             e.stopPropagation();
-            $mask.trigger('click');
+            $mask.trigger('tap');
         });
 
     }

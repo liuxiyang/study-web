@@ -1,18 +1,13 @@
 requirejs.config({
 	paths : {
+		touch : 'touch',
 		jquery : 'jquery.min',
 		zepto : 'zepto.min',
 		iscroll : 'iscroll-lite'
 	}
-	/*shim : {
-		'zepto' : {
-			exports : '$'
-		}
-	}*/
 });
 
 requirejs(['jquery','ScrollTo','sideMenu'],function($,ScrollTo,sideMenu){
-
 	sideMenu.init();
 
 	/*var scroll = new ScrollTo.ScrollTo({});
