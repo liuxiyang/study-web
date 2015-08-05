@@ -1,28 +1,32 @@
 requirejs.config({
-	paths : {
-		touch : 'touch',
-		jquery : 'jquery.min',
-		zepto : 'zepto.min',
-		iscroll : 'iscroll-lite'
-	}
+    paths: {
+        touch: 'touch',
+        jquery: 'jquery.min',
+        zepto: 'zepto.min',
+        iscroll: 'iscroll-lite'
+    }
 });
 
-requirejs(['jquery','ScrollTo','sideMenu'],function($,ScrollTo,sideMenu){
-	sideMenu.init();
+requirejs(['jquery', 'ScrollTo', 'sideMenu'], function($, ScrollTo, sideMenu) {
 
-	/*var scroll = new ScrollTo.ScrollTo({});
+    $('#btn').on('click', function() {
+        sideMenu.init();
+    })
 
-	$('#backTop').on('click',$.proxy(scroll.move,scroll));
-	$(window).on('scroll',function(){
-		checkPosition($(window).height());
-	});
-	checkPosition($(window).height());
 
-	function checkPosition(pos){
-		if($(window).scrollTop() > pos){
-			$('#backTop').fadeIn();
-		}else{
-			$('#backTop').fadeOut();
-		}
-	}*/
+    /*var scroll = new ScrollTo.ScrollTo({});
+
+    $('#backTop').on('click',$.proxy(scroll.move,scroll));
+    $(window).on('scroll',function(){
+    	checkPosition($(window).height());
+    });
+    checkPosition($(window).height());
+
+    function checkPosition(pos){
+    	if($(window).scrollTop() > pos){
+    		$('#backTop').fadeIn();
+    	}else{
+    		$('#backTop').fadeOut();
+    	}
+    }*/
 });

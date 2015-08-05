@@ -1,4 +1,4 @@
-define(['zepto','touch','iscroll'], function() {
+define(['zepto', 'touch', 'iscroll'], function() {
 
     window.$ = Zepto;
 
@@ -12,20 +12,20 @@ define(['zepto','touch','iscroll'], function() {
         document.body.style.overflow = 'auto';
     }
 
-    function ajaxForData(){
-    	$.ajax({
-    		url: '/mock/test.json',
-    		data: {},
-    		type: 'GET',
-    		dataType: 'json',
-    		async : false,
-    		success: function(jsonData){
-    			initDom(jsonData);
-    		}
-    	})
+    function ajaxForData() {
+        $.ajax({
+            url: '/mock/test.json',
+            data: {},
+            type: 'GET',
+            dataType: 'json',
+            async: false,
+            success: function(jsonData) {
+                initOrshowDom(jsonData);
+            }
+        });
     }
 
-    function initDom(jsonData) {
+    function initOrshowDom(jsonData) {
         if (jsonData) {
             var tpls = '<section class="sm_warp"><ul class="sm_container">';
             tpls += '<li class="sm_li"><a><span class="sm_area">全部</span></a></li>';
@@ -70,23 +70,22 @@ define(['zepto','touch','iscroll'], function() {
             hideMask();
         });
 
-        $(document.body).on('tap', function(e) {
-            initDom();
-        })
-
         $wrap.on('tap', '.sm_li', function(e) {
             e.stopPropagation();
             $mask.trigger('tap');
         });
-
     }
 
     return {
 
         init: function() {
             var sideScroll = null;
-            ajaxForData();
-            initIScroll();
+            if ($('.sm_warp').length == 0) {
+                ajaxForData();
+                initIScroll();
+            } else {
+                initOrshowDom();
+            }
             bindEvents();
         }
     }
