@@ -8,7 +8,7 @@ requirejs.config({
 });
 
 requirejs(['jquery', 'ScrollTo', 'sideMenu'], function($, ScrollTo, sideMenu) {
-
+	// console.log($)
     $('#btn').on('click', function() {
         sideMenu.init();
     })

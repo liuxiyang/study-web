@@ -27,7 +27,7 @@ define(['zepto', 'touch', 'iscroll'], function() {
 
     function initOrshowDom(jsonData) {
         if (jsonData) {
-            var tpls = '<section class="sm_warp"><ul class="sm_container">';
+            var tpls = '<section class="sm_wrap"><ul class="sm_container">';
             tpls += '<li class="sm_li"><a><span class="sm_area">全部</span></a></li>';
             for (var i = 0, len = jsonData.length; i < len; i++) {
                 var tmpObj = jsonData[i];
@@ -41,14 +41,14 @@ define(['zepto', 'touch', 'iscroll'], function() {
             $('.sm_mask').width($(document).width());
             $('.sm_mask').height($(document).height());
         } else {
-            $('.sm_warp,.sm_mask').show();
+            $('.sm_wrap,.sm_mask').show();
         }
         openMask();
-        $('.sm_warp').css('top', $(window).scrollTop());
+        $('.sm_wrap').css('top', $(window).scrollTop());
     }
 
     function initIScroll() {
-        sideScroll = new IScroll('.sm_warp', {
+        sideScroll = new IScroll('.sm_wrap', {
             scrollX: false,
             scrollY: true,
             bounceTime: 400,
@@ -60,7 +60,7 @@ define(['zepto', 'touch', 'iscroll'], function() {
 
     function bindEvents() {
         var $mask = $('.sm_mask'),
-            $wrap = $('.sm_warp');
+            $wrap = $('.sm_wrap');
 
         $mask.on('tap', function(e) {
             e.stopPropagation();
@@ -71,8 +71,8 @@ define(['zepto', 'touch', 'iscroll'], function() {
         });
 
         $wrap.on('tap', '.sm_li', function(e) {
-            e.stopPropagation();
-            $mask.trigger('tap');
+            // e.stopPropagation();
+            // $mask.trigger('tap');
         });
     }
 
@@ -80,7 +80,7 @@ define(['zepto', 'touch', 'iscroll'], function() {
 
         init: function() {
             var sideScroll = null;
-            if ($('.sm_warp').length == 0) {
+            if ($('.sm_wrap').length == 0) {
                 ajaxForData();
                 initIScroll();
             } else {

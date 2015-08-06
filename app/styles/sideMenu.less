@@ -1,3 +1,12 @@
+/* 过渡 */  
+.transition (@prop: all, @time: 1s, @ease: linear) {  
+    -webkit-transition: @prop @time @ease;  
+    -moz-transition: @prop @time @ease;  
+    -o-transition: @prop @time @ease;  
+    -ms-transition: @prop @time @ease;  
+    transition: @prop @time @ease;  
+} 
+
 .sm_mask{
 	position: absolute;
 	top: 0;
@@ -6,12 +15,13 @@
 	background-color: rgba(0, 0, 0, 0.3);
 }
 
-.sm_warp{
+.sm_wrap{
+	.transition(top,.2s);
 	z-index: 101;
 	font-family: "Microsoft yahei";
 	font-size: 12px;
 	position: absolute;
-	top: 0;
+	top: -500px;
 	right: 0;
 	background-color: #efefef;
 	overflow: hidden;

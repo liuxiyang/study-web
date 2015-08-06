@@ -1,3 +1,4 @@
+/* 过渡 */
 .sm_mask {
   position: absolute;
   top: 0;
@@ -5,32 +6,37 @@
   z-index: 100;
   background-color: rgba(0, 0, 0, 0.3);
 }
-.sm_warp {
+.sm_wrap {
+  -webkit-transition: top 0.2s linear;
+  -moz-transition: top 0.2s linear;
+  -o-transition: top 0.2s linear;
+  -ms-transition: top 0.2s linear;
+  transition: top 0.2s linear;
   z-index: 101;
   font-family: "Microsoft yahei";
   font-size: 12px;
   position: absolute;
-  top: 0;
+  top: -500px;
   right: 0;
   background-color: #efefef;
   overflow: hidden;
   width: 120px;
   height: 100%;
 }
-.sm_warp .sm_container {
+.sm_wrap .sm_container {
   position: relative;
   overflow: hidden;
 }
-.sm_warp .sm_container .sm_li {
+.sm_wrap .sm_container .sm_li {
   padding-left: 10px;
   height: 40px;
   line-height: 40px;
   border-bottom: 1px solid #e0e0e0;
 }
-.sm_warp .sm_container .sm_li a {
+.sm_wrap .sm_container .sm_li a {
   display: block;
 }
-.sm_warp .sm_container .sm_nums {
+.sm_wrap .sm_container .sm_nums {
   padding-left: 5px;
 }
 /*# sourceMappingURL=sideMenu.css.map */
